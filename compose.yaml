@@ -1,0 +1,12 @@
+services:
+  canvas-docker:
+    image: canvas-lms
+    ports:
+      # Syntax HOST:CONTAINER
+      - "3000:3000"
+      - "5434:5432"
+    networks:
+      - canvas
+
+networks:
+  canvas: { }
