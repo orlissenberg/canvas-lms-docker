@@ -1,5 +1,5 @@
 ARG RUBY=2.7
-FROM canvas-lms-docker-ruby:latest as build
+FROM canvas-lms-ruby:latest as build
 
 WORKDIR /opt/canvas/canvas-lms
 
