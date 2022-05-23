@@ -8,6 +8,8 @@ services:
       - "5434:5432"
       # Redis
       - "6380:6379"
+      # HAProxy
+      - "8443:8443"
     networks:
       - canvas
 

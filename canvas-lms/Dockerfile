@@ -53,7 +53,9 @@ RUN printf 'path-exclude /usr/share/doc/*\npath-exclude /usr/share/man/*' > /etc
        python-is-python2 \
        redis-server \
        postgresql-12 \
-       supervisor
+       supervisor \
+       haproxy \
+       vim
 
 RUN if [ -e /var/lib/gems/$RUBY_MAJOR.0/gems/bundler-* ]; then BUNDLER_INSTALL="-i /var/lib/gems/$RUBY_MAJOR.0"; fi \
   && gem uninstall --all --ignore-dependencies --force $BUNDLER_INSTALL bundler \
@@ -73,7 +75,9 @@ COPY etc/ /etc/
 COPY config/ /opt/canvas/canvas-lms/config/
 RUN /configure-canvas.sh \
   && mkdir -p /tmp/attachment_fu/ \
-  && chown -R docker: /tmp/attachment_fu/
+  && chown -R docker: /tmp/attachment_fu/ \
+  && mkdir -p /run/haproxy/ \
+  && chown -R haproxy: /run/haproxy/
 
 RUN sed -i "/^#listen_addresses/i listen_addresses='*'" /etc/postgresql/12/main/postgresql.conf \
   && service postgresql start  \
@@ -92,5 +96,7 @@ EXPOSE 5432
 EXPOSE 6379
 # canvas
 EXPOSE 3000
+# haproxy
+EXPOSE 8443
 
 CMD ["/start.sh"]
