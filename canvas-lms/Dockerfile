@@ -68,9 +68,12 @@ COPY --from=build /home/docker/.gem/ /home/docker/.gem/
 WORKDIR /opt/canvas/canvas-lms
 
 COPY scripts/ /
-RUN chmod 755 /*.sh
-
 COPY etc/ /etc/
+
+RUN chmod 755 /*.sh \
+  && chmod -R o+r /etc/redis \
+  && chmod -R o+r /etc/postgresql \
+  && chmod -R o+r /etc/haproxy
 
 COPY config/ /opt/canvas/canvas-lms/config/
 RUN /configure-canvas.sh \

@@ -20,12 +20,14 @@ Canvas docker image (for science/development) with Postgresql database and Redis
     Canvas Admin Username: docker@acme.edu
     Canvas Admin Password: canvas-docker
 
-[Canvas GraphiQL - /graphiql](http://127.0.0.1:3000/graphiql)
+[Canvas GraphiQL - https://127.0.0.1:8443/graphiql](https://127.0.0.1:8443/graphiql)
 
 Postgresql available at 127.0.0.1:5434
 
     Username: postgres
     No password.
+
+Redis available at 127.0.0.1:6380
 
 ### Other useful commands:
 
@@ -42,6 +44,10 @@ Postgresql available at 127.0.0.1:5434
 
     pkill haproxy
     apt-get update && apt-get install net-tools
+
+### Chrome Accept Self-signed Certificates
+
+    chrome://flags/#allow-insecure-localhost
 
 ### Based on Dockerfile's from:
 
