@@ -2,6 +2,8 @@
 
 Canvas docker image (for science/development) with Postgresql database and Redis included.
 
+[Docker Hub orlissenberg/canvas-lms](https://hub.docker.com/r/orlissenberg/canvas-lms/tags)
+
     cd canvas-lms-node
     docker build -t canvas-lms-node .
 
