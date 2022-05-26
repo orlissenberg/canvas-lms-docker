@@ -1,4 +1,6 @@
-FROM canvas-lms-node:latest
+ARG TAG=latest
+
+FROM canvas-lms-node:$TAG
 LABEL maintainer="Instructure"
 
 WORKDIR /opt/canvas/canvas-lms

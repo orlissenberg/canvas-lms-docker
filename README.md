@@ -7,7 +7,7 @@ Canvas docker image (for science/development) with Postgresql database and Redis
 
     cd canvas-lms-ruby
     docker build -t canvas-lms-ruby .
-    
+
     cd canvas-lms
     docker build -t orlissenberg/canvas-lms:latest .
 

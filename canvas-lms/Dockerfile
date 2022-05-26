@@ -1,5 +1,7 @@
 ARG RUBY=2.7
-FROM canvas-lms-ruby:latest as build
+ARG TAG=latest
+
+FROM canvas-lms-ruby:$TAG as build
 
 WORKDIR /opt/canvas/canvas-lms
 

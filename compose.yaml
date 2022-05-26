@@ -1,6 +1,6 @@
 services:
   canvas-docker:
-    image: orlissenberg/canvas-lms:latest
+    image: orlissenberg/canvas-lms:2022-06-08.135
     ports:
       # Syntax HOST:CONTAINER
       - "3000:3000"
@@ -12,6 +12,8 @@ services:
       - "8443:8443"
     networks:
       - canvas
+    #volumes:
+    #  - ./canvas-lms/etc/postgresql/pg_hba.conf:/etc/postgresql/12/main/pg_hba.conf
 
 networks:
   canvas: { }
