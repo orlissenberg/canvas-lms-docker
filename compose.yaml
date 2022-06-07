@@ -1,6 +1,6 @@
 services:
   canvas-docker:
-    image: orlissenberg/canvas-lms:2022-06-08.135
+    image: orlissenberg/canvas-lms:latest
     ports:
       # Syntax HOST:CONTAINER
       - "3000:3000"

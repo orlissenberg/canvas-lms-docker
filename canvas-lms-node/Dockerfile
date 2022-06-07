@@ -11,7 +11,7 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 ENV LC_CTYPE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
-ARG CANVAS_RAILS=6.0
+ARG CANVAS_RAILS=6.1
 ENV CANVAS_RAILS=${CANVAS_RAILS}
 ARG CANVAS_REVISION=master
 ENV REVISION=${CANVAS_REVISION}
@@ -65,6 +65,6 @@ RUN if [ -e /var/lib/gems/$RUBY_MAJOR.0/gems/bundler-* ]; then BUNDLER_INSTALL="
 
 RUN npm install -g npm@latest && npm cache clean --force
 
-COPY scripts/checkout-canvas.sh /
-RUN chmod +x /checkout-canvas.sh
-RUN /checkout-canvas.sh
+COPY src/"${REVISION}" /opt/canvas/canvas-lms
+WORKDIR /opt/canvas/canvas-lms
+RUN yarn install --pure-lockfile
